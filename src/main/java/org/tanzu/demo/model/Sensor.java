@@ -86,11 +86,11 @@ public class Sensor {
         }
         switch(rand) {
             case 8:
-                return "social issues";
+                return "Predicting social issues";
             case 9:
-                return "medical condition";
+                return "Existing medical conditions";
             case 10:
-                return "social issues, medical condition";
+                return "Existing medical conditions, Predicting social issues";
             default:
                 return "error!!";
         }
