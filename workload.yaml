@@ -1,14 +1,44 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: mysensors
+  name: mood-sensors
   labels:
-    apps.tanzu.vmware.com/workload-type: dekt-api
+    apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: "true"
-    app.kubernetes.io/part-of: mysensors
+    app.kubernetes.io/part-of: mood-sensors
+    apis.apps.tanzu.vmware.com/register-api: "true"
 spec:
+  #source code
   source:
     git:
       url: https://github.com/dektlong/mood-sensors
       ref:
         branch: main
+  
+  serviceClaims:
+    - name: inventory-claim
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1          
+        kind: ClassClaim
+        name: inventory
+    - name: reading-claim
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1          
+        kind: ClassClaim
+        name: reading
+
+  params:
+    #- name: testing_pipeline_matching_labels
+    #  value:
+    #    apps.tanzu.vmware.com/language: java
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+    - name: api_descriptor
+      value:
+        type: openapi
+        location:
+          path: /api-docs
+        owner: dekt-dev-team2
+        system: devx-mood
+        description: A set of API endpoints to manage the resources within the my-web-backend app.
