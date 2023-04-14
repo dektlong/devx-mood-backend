@@ -34,9 +34,9 @@ public class DemoController {
     @RequestMapping("/")
     public String testPortal(Model model) throws SQLException {
     
-        //Connection connection = Objects.requireNonNull(_jdbcTemplate.getDataSource()).getConnection();
+        Connection connection = Objects.requireNonNull(_jdbcTemplate.getDataSource()).getConnection();
         model.addAttribute("sensorDB", "Mood Sensors Data");// Store: " + connection.getMetaData().getURL());
-        //connection.close();
+        connection.close();
         return "test-portal";
     }
 
