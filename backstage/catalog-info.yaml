@@ -8,7 +8,6 @@ metadata:
 spec:
   targets:
     - ./apis/mood-sensors-api-component.yaml
-    - ./components/mysensors.yaml
     - ./components/mood-sensors.yaml
     - ./resources/reading.yaml
     - ./resources/inventory.yaml
