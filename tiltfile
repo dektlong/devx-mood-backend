@@ -1,18 +1,16 @@
 SOURCE_IMAGE = os.getenv("SOURCE_IMAGE")
 LOCAL_PATH = os.getenv("LOCAL_PATH")
 NAMESPACE = os.getenv("NAMESPACE")
-OUTPUT_TO_NULL_COMMAND =' > /dev/null '
 
 k8s_custom_deploy(
     'mysensors',
-    apply_cmd="tanzu apps workload apply -f workload.yaml --debug --live-update" +
-        " --local-path " + LOCAL_PATH +
-        " --source-image " + SOURCE_IMAGE +
-        " --namespace " + NAMESPACE +
-        " --yes " +
-        OUTPUT_TO_NULL_COMMAND + 
-        " && kubectl get workload mysensors --namespace " + NAMESPACE + " -o yaml",
-    delete_cmd="tanzu apps workload delete -f  workload.yaml --namespace " + NAMESPACE + " --yes" ,
+    apply_cmd="tanzu apps workload apply -f workload.yaml " +
+            " --local-path " + LOCAL_PATH +
+            " --source-image " + SOURCE_IMAGE +
+            " --update-strategy replace" + 
+            " --live-update --output yaml" +
+            " --namespace " + NAMESPACE + " --yes",
+    delete_cmd="tanzu apps workload delete -f mysensors --namespace " + NAMESPACE + " --yes" ,
     deps=['pom.xml', './target/classes'],
     container_selector='workload',
     live_update=[
@@ -21,5 +19,5 @@ k8s_custom_deploy(
 )
 
 k8s_resource('mysensors', port_forwards=["8080:8080"],
-    extra_pod_selectors=[{'serving.knative.dev/service': 'mysensors'}])
+    extra_pod_selectors=[{'carto.run/workload-name': 'mysensors', 'app.kubernetes.io/component': 'run'}])
 allow_k8s_contexts('dev-mood')
