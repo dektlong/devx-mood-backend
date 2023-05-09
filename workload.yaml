@@ -8,12 +8,12 @@ metadata:
     app.kubernetes.io/part-of: mysensors
     apis.apps.tanzu.vmware.com/register-api: "true"
 spec:
-#  #source code
-#  source:
-#    git:
-#      url: https://github.com/dektlong/mood-sensors
-#      ref:
-#        branch: main
+  #source code
+  source:
+    git:
+      url: https://github.com/dektlong/mood-sensors
+      ref:
+        branch: main
   
   serviceClaims:
     - name: inventory-claim
