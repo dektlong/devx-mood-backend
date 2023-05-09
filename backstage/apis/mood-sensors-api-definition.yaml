@@ -1,7 +1,6 @@
 openapi: 3.0.1
 servers:
-  - url: https://mood-sensors.dev.dekt.io
-  - url: https://mood-sensors.prod.dekt.io
+  - url: https://mood-sensors.earth.dekt.io
 info:
   title: API definition for mood-sensors
   version: 0.0.8
