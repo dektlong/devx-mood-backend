@@ -30,7 +30,7 @@ public class Sensor {
     }
 
     public int getId() {
-        return id;
+        return id*99;
     }
 
     public String getRole() {
@@ -81,16 +81,27 @@ public class Sensor {
 
         int rand = ThreadLocalRandom.current().nextInt(1, 11);
 
-        if (rand < 8) {
-                return "";
-        }
         switch(rand) {
+            case 1:
+                return "";
+            case 2:
+                return "Predicting neutral social sentiments";
+            case 3:
+                return "Predicting positive social sentiments";
+            case 4:
+                return "Predicting negative social sentiments";            
+            case 5:
+                return "Predicting mixed social sentiments";
+            case 6:
+                return "Existing medical conditions found";
+            case 7:
+                return "Existing medical conditions found, Predicting neutral social sentiments";
             case 8:
-                return "Predicting social issues";
+                return "Existing medical conditions found, Predicting positive social sentiments";
             case 9:
-                return "Existing medical conditions";
+                return "Existing medical conditions found, Predicting negative social sentiments";
             case 10:
-                return "Existing medical conditions, Predicting social issues";
+                return "Existing medical conditions found, Predicting mixed social sentiments";
             default:
                 return "error!!";
         }
