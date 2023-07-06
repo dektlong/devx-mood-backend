@@ -30,7 +30,7 @@ public class Sensor {
     }
 
     public int getId() {
-        return id*99;
+        return id;
     }
 
     public String getRole() {
@@ -93,15 +93,15 @@ public class Sensor {
             case 5:
                 return "Predicting mixed social sentiments";
             case 6:
-                return "Existing medical conditions found";
+                return "Medical conditions found";
             case 7:
-                return "Existing medical conditions found, Predicting neutral social sentiments";
+                return "Medical conditions found, Predicting neutral social sentiments";
             case 8:
-                return "Existing medical conditions found, Predicting positive social sentiments";
+                return "Medical conditions found, Predicting positive social sentiments";
             case 9:
-                return "Existing medical conditions found, Predicting negative social sentiments";
+                return "Medical conditions found, Predicting negative social sentiments";
             case 10:
-                return "Existing medical conditions found, Predicting mixed social sentiments";
+                return "Medical conditions found, Predicting mixed social sentiments";
             default:
                 return "error!!";
         }
