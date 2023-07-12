@@ -47,7 +47,7 @@ public class Sensor {
     
     private String generateRole() {
 
-        int rand = ThreadLocalRandom.current().nextInt(1, 19);
+        int rand = ThreadLocalRandom.current().nextInt(1, 5);
         switch(rand) {
             case 1:
                 return "architect";
@@ -79,7 +79,7 @@ public class Sensor {
 
     private String generateBaseline() {
 
-        int rand = ThreadLocalRandom.current().nextInt(1, 21);
+        int rand = ThreadLocalRandom.current().nextInt(1, 19);
 
         switch(rand) {
             case 1:
