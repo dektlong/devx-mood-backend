@@ -47,7 +47,7 @@ public class Sensor {
     
     private String generateRole() {
 
-        int rand = ThreadLocalRandom.current().nextInt(1, 5);
+        int rand = ThreadLocalRandom.current().nextInt(1, 19);
         switch(rand) {
             case 1:
                 return "architect";
@@ -79,28 +79,44 @@ public class Sensor {
 
     private String generateBaseline() {
 
-        int rand = ThreadLocalRandom.current().nextInt(1, 11);
+        int rand = ThreadLocalRandom.current().nextInt(1, 21);
 
         switch(rand) {
             case 1:
                 return "";
             case 2:
-                return "Predicting neutral social sentiments";
+                return "";
             case 3:
-                return "Predicting positive social sentiments";
+                return "";
             case 4:
-                return "Predicting negative social sentiments";            
+                return "";
             case 5:
-                return "Predicting mixed social sentiments";
+                return "";
             case 6:
-                return "Medical conditions found";
+                return "";
             case 7:
-                return "Medical conditions found, Predicting neutral social sentiments";
+                return "";
             case 8:
-                return "Medical conditions found, Predicting positive social sentiments";
+                return "";
             case 9:
-                return "Medical conditions found, Predicting negative social sentiments";
+                return "";
             case 10:
+                return "Predicting neutral social sentiments";
+            case 11:
+                return "Predicting positive social sentiments";
+            case 12:
+                return "Predicting negative social sentiments";            
+            case 13:
+                return "Predicting mixed social sentiments";
+            case 14:
+                return "Medical conditions found";
+            case 15:
+                return "Medical conditions found, Predicting neutral social sentiments";
+            case 16:
+                return "Medical conditions found, Predicting positive social sentiments";
+            case 17:
+                return "Medical conditions found, Predicting negative social sentiments";
+            case 18:
                 return "Medical conditions found, Predicting mixed social sentiments";
             default:
                 return "error!!";
