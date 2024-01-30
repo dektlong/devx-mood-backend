@@ -30,7 +30,7 @@ public class Sensor {
     }
 
     public int getId() {
-        return id;
+        return id*99;
     }
 
     public String getRole() {
